@@ -11,8 +11,8 @@ class ProductController extends Controller
     public function fetchProducts(Request $request)
     {
         $offset = $request->input('offset', 0);
-        $limit = $request->input('limit', 50);
-        $data = (new ProductProvider())->fetchProducts($offset);
+        $limit = $request->input('limit', 500);
+        $data = (new ProductProvider())->fetchProducts($offset, $limit);
 
         return response()->json([
             'success' => !empty($data['result']['items']),

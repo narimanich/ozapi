@@ -5,7 +5,7 @@ use GuzzleHttp\Client;
 
 class ProductProvider
 {
-    public function fetchProducts($offset = 0, $limit = 50)
+    public function fetchProducts($offset = 0, $limit = 500)
     {
         $client = new Client([
             'base_uri' => env('OZON_API_URL'),
