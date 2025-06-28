@@ -1,5 +1,6 @@
 .git
 vendor
-.env
+node_modules
+Dockerfile
 *.md
 *.gitignore
