@@ -39,4 +39,8 @@ RUN echo "<VirtualHost *:80>\n\
     </Directory>\n\
 </VirtualHost>" > /etc/apache2/sites-available/000-default.conf
 
+# Копируем .env и генерируем ключ
+RUN cp /var/www/html/.env.example /var/www/html/.env && \
+    php /var/www/html/artisan key:generate
+
 EXPOSE 80
