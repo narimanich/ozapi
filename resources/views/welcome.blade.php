@@ -114,7 +114,7 @@
                     <td class="px-4 py-3 text-gray-800 truncate max-w-xs">${product.name || 'Без названия'}</td>
                     <td class="px-4 py-3 text-gray-600">${product.product_id || '—'}</td>
                     <td class="px-4 py-3 text-gray-600">${product.offer_id || '—'}</td>
-                    <td class="px-4 py-3 text-blue-600 font-semibold">${product.price ? `${product.price} ₽` : 'Не указана'}</td>
+                    <td class="px-4 py-3 text-blue-600 font-semibold">${product.price ? product.price : 'Не указана'}</td>
                     <td class="px-4 py-3">
                         <div class="flex items-center">
                             <span class="inline-block w-3 h-3 rounded-full mr-2 ${product.archived ? 'bg-red-500' : 'bg-green-500'}"></span>

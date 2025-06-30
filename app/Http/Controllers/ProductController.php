@@ -15,8 +15,8 @@ class ProductController extends Controller
         $data = (new ProductProvider())->fetchProducts($offset, $limit);
 
         return response()->json([
-            'success' => !empty($data['result']['items']),
-            'data' => $data['result']['items'] ?? []
+            'success' => !empty($data),
+            'data' => $data
         ]);
     }
 
@@ -26,12 +26,11 @@ class ProductController extends Controller
             $provider = new ProductProvider();
             $data = $provider->fetchProducts(0, 1000);
 
-            if (!isset($data['result']['items']) || !is_array($data['result']['items'])) {
+            if (!$data) {
                 return back()->with('error', 'Нет данных для экспорта.');
             }
 
-            $products = $data['result']['items'];
-
+            $products = $data;
             // Генерация CSV
             $csvFileName = "ozon_products_export.csv";
             $headers = [
